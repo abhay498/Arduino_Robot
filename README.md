@@ -1,9 +1,9 @@
 # Arduino_Robot (Light seeking and obstacle avoider)
 
 ##########################################################
+
 An autonomous light-seeking an obstacle avoiding robot using
 Arduino development board.
-
 
 Components used in building this autonomous robot:
 ----------------------------------------------------------
