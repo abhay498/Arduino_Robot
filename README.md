@@ -1,11 +1,12 @@
 # Arduino_Robot (Light seeking and obstacle avoider)
 
-##################################################################################
-An autonomous light-seeking an obstacle avoiding robot using Arduino development board.
+##########################################################
+An autonomous light-seeking an obstacle avoiding robot using
+Arduino development board.
 
 
 Components used in building this autonomous robot:
--------------------------------------------------------------------------------------
+----------------------------------------------------------
 
 - Arduino Uno Rev 3 development board containing Atmega 328P U microcontroller
 - 170 points Breadboard  
@@ -31,7 +32,7 @@ Components used in building this autonomous robot:
 - Castor wheel
 
 Tools used in building this autonomous robot:
--------------------------------------------------------------------------------------
+----------------------------------------------------------
 - Precision screwdrivers
 - Precision ESD tweezers
 - Wire cutter
@@ -43,4 +44,4 @@ Tools used in building this autonomous robot:
 - Thin single core wire
 - Flux pen
 
-###################################################################################
+##########################################################
