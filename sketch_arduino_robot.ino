@@ -1,4 +1,30 @@
 
+/* Arduino Light Seeking and Obstacle Avoiding Robot
+
+   This Arduino sketch is for a robot that uses light sensors and an ultrasonic
+   sensor to navigate towards a light source while avoiding obstacles. The code
+   controls servos for movement and uses photoresistors to detect light intensity. 
+
+  Setup Function
+     - This function initializes the servos and sensors, sets pin modes, and starts
+       serial communication.
+
+  Loop Function
+     - The loop function continuously reads sensor values, prints them to the
+       serial monitor, and makes decisions based on those readings to navigate
+       or avoid obstacles.
+
+  Navigation and Movement Functions
+     - These functions control the robot's movements based on sensor readings.
+
+  Obstacle Avoidance Functions
+     - These functions handle the robot's behavior when it detects an obstacle.   
+
+  Ping Function
+     - This function triggers the ultrasonic sensor and waits for a reading,
+       returning the distance.  
+*/
+
 #include <Servo.h> // Include Servo library
 #include <HC_SR04.h> // Include HC-SR04 library
 
