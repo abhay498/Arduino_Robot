@@ -2,7 +2,7 @@
 
 ##########################################################
 
-An autonomous light-seeking an obstacle avoiding robot using
+An autonomous light-seeking obstacle avoiding robot using
 Arduino development board.
 
 Components used in building this autonomous robot:
