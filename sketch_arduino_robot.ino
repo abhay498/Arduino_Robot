@@ -11,7 +11,7 @@
 const int RForward = 140; // Speed of the servo
 const int RightLightSensor = 0; // Analog pin for the right light sensor
 const int LeftLightSensor = 2; // Analog pin for the left light sensor
-const int collisionThreshold = 15; // Threshold for obstacles (in cm)
+const int collisionThreshold = 10; // Threshold for obstacles (in cm)
 const int threshold_pot = 4; // Analog pin for the threshold potentiometer
 const int closeness = 60; // Value for detecting light source directly ahead
 const int RightLEDIndicator = 5; // Digital pin for right LED indicator
@@ -64,7 +64,7 @@ void loop()
   Serial.print("Threshold: ");
   Serial.print(threshold);
   Serial.print(" (");
-  Serial.print(threshold / 2);
+  Serial.print(threshold / 3);
   Serial.print("), Left photoresistor reading=");
   Serial.print(SensorLeft);
   Serial.print(", Right photoresistor reading=");
@@ -76,9 +76,9 @@ void loop()
   Serial.print(" cm, Move: ");
 
   if (SensorLeft >= threshold && SensorRight >= threshold && SensorDifference <= closeness)
-	{
-		stopRobot();
-    }
+	  {
+		  stopRobot();
+     }
 
   if (distance_in_front_of_robot > collisionThreshold) 
     {
@@ -95,7 +95,7 @@ void loop()
 void navigateTowardsLight(int threshold) 
     {
       if (SensorLeft <= threshold && SensorRight <= threshold && 
-          SensorLeft >= threshold / 2 && SensorRight >= threshold / 2 && 
+          SensorLeft >= threshold / 3 && SensorRight >= threshold / 3 && 
           SensorDifference <= closeness)
 		  {
             moveForward();
@@ -104,15 +104,15 @@ void navigateTowardsLight(int threshold)
 	      {
             stopRobot();
           } 
-      else if (SensorLeft < SensorRight && SensorRight >= threshold / 2) 
+      else if (SensorLeft < SensorRight && SensorRight >= threshold / 3) 
 	      {
             turnRight();
           }
-	  else if (SensorLeft > SensorRight && SensorLeft >= threshold / 2)
+	  else if (SensorLeft > SensorRight && SensorLeft >= threshold / 3)
 		  {
             turnLeft();
           }
-	  else if (SensorLeft < threshold / 2 && SensorRight < threshold / 2)
+	  else if (SensorLeft < threshold / 3 && SensorRight < threshold / 3)
 		  {
             turnAround();
           }
@@ -149,10 +149,10 @@ void stopRobot()
 
 void turnRight() 
 {
-  int Left_backward = 100;
+  int Left_forward = 70;
   int Right_backward = 100;
-  Serial.print("Right");
-  leftMotor.write(Left_backward);
+  Serial.print("Right (turning)");
+  leftMotor.write(Left_forward);
   rightMotor.write(Right_backward);
   digitalWrite(RightLEDIndicator, LOW);
   digitalWrite(LeftLEDIndicator, HIGH);
@@ -163,7 +163,7 @@ void turnLeft()
 {
   int Left_backward = 100;
   int Right_forward = 140;
-  Serial.print("Left");
+  Serial.print("Left (turning)");
   leftMotor.write(Left_backward);
   rightMotor.write(Right_forward);
   digitalWrite(RightLEDIndicator, HIGH);
@@ -195,7 +195,7 @@ void avoidObstacle()
   
   leftDistance = ping();
   Serial.print("Left distance picked up from HC SR04 sensor: ");
-  Serial.print(leftDistance);
+  Serial.println(leftDistance);
   delay(400);
   panMotor.write(180);
   delay(600);
@@ -213,7 +213,7 @@ void compareDistance()
 {
   if (leftDistance > rightDistance) 
      {
-		move_left();
+		    move_left();
      } 
   else if (rightDistance > leftDistance) 
      {
