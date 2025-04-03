@@ -5,7 +5,10 @@
 An autonomous light-seeking obstacle avoiding robot using
 Arduino development board.
 
+![alt text](https://github.com/abhay498/Arduino_Robot/blob/main/Arduino_Robot_in_Action_Perfect_Navigation_first_release_2nd_part.gif)
+
 ![alt text](https://github.com/abhay498/Arduino-Robot/blob/main/Arduino_robot_first_release_3rd_part_picture_1.jpg?raw=true)
+
 Components used in building this autonomous robot:
 ----------------------------------------------------------
 
